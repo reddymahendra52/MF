@@ -159,7 +159,7 @@ const BookNow = () => {
           </TableRow>
         ) : (
           listData.map((row, index) => (
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} key={row.id}>
               <div className={styles.left}>
                 <img src='https://i.imgur.com/cMy8V5j.png' alt='user' width='100' />
                 <h4>{row.name}</h4>
