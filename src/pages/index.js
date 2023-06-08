@@ -33,14 +33,13 @@ const Dashboard = () => {
   const theme = useTheme()
   const imageSrc = theme.palette.mode === 'light' ? 'triangle-light.png' : 'triangle-dark.png'
 
-  const cuuid = "";
-  const cname = "";
-
   const [userName, setUserName] = useState("");
   const [userUUID, setUserUUID] = useState("");
 
   // Check if the user is authenticated on page load
   useEffect(() => {
+    const cuuid = "";
+    const cname = "";
     cuuid = localStorage.getItem('Cuuid');
     cname = localStorage.getItem('Name');
     console.log("Cuuid : " + cuuid);
