@@ -99,7 +99,7 @@ const LoginPage = () => {
       });
       console.log(payload);
   
-      const response = await fetch('http://13.127.200.135:8080/api/login/customers', {
+      const response = await fetch('https://maid-app-test.onrender.com/api/login/customers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body:payload

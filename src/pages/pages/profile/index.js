@@ -57,7 +57,7 @@ const Profile = () => {
       });
       console.log(payload);
   
-      const response = await fetch('http://13.127.200.135:8080/api/update/customers/' + cid, {
+      const response = await fetch('https://maid-app-test.onrender.com/api/update/customers/' + cid, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body:payload
