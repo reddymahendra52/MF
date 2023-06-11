@@ -9,6 +9,7 @@ import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
 import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
+import HelpCircleOutline from 'mdi-material-ui/HelpCircleOutline'
 
 import Bookings from 'src/views/dashboard/bookings'
 
@@ -29,7 +30,11 @@ const navigation = () => {
       icon: Table,
       path: '/pages/bookings'
     },
-    
+    {
+      title: 'FAQ',
+      icon: HelpCircleOutline,
+      path: '/pages/faq'
+    },
     {
       sectionTitle: 'Account'
     },
@@ -41,8 +46,8 @@ const navigation = () => {
     {
       title: 'Logout',
       icon: Login,
-      path: '/pages/login',
-    },
+      path: '/pages/login'
+    }
   ]
 }
 

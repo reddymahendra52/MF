@@ -15,6 +15,11 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -35,10 +40,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/pages/booknow.js"
     ],
-    "/pages/login": [
+    "/pages/faq": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/pages/login.js"
+      "static/chunks/pages/pages/faq.js"
     ]
   },
   "ampFirstPages": []

@@ -52,6 +52,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var C_Us
 
 /***/ }),
 
+/***/ "./node_modules/mdi-material-ui/EmailOutline.js":
+/*!******************************************************!*\
+  !*** ./node_modules/mdi-material-ui/EmailOutline.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\n\nvar _createIcon = _interopRequireDefault(__webpack_require__(/*! ./util/createIcon */ \"./node_modules/mdi-material-ui/util/createIcon.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\nvar _default = (0, _createIcon[\"default\"])('M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z', 'EmailOutline');\n\nexports[\"default\"] = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9ub2RlX21vZHVsZXMvbWRpLW1hdGVyaWFsLXVpL0VtYWlsT3V0bGluZS5qcy5qcyIsIm1hcHBpbmdzIjoiQUFBYTs7QUFFYiw4Q0FBNkM7QUFDN0M7QUFDQSxDQUFDLEVBQUM7QUFDRixrQkFBa0I7O0FBRWxCLHlDQUF5QyxtQkFBTyxDQUFDLDRFQUFtQjs7QUFFcEUsdUNBQXVDLHVDQUF1Qzs7QUFFOUU7O0FBRUEsa0JBQWtCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8uL25vZGVfbW9kdWxlcy9tZGktbWF0ZXJpYWwtdWkvRW1haWxPdXRsaW5lLmpzP2M5NTEiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwge1xuICB2YWx1ZTogdHJ1ZVxufSk7XG5leHBvcnRzW1wiZGVmYXVsdFwiXSA9IHZvaWQgMDtcblxudmFyIF9jcmVhdGVJY29uID0gX2ludGVyb3BSZXF1aXJlRGVmYXVsdChyZXF1aXJlKFwiLi91dGlsL2NyZWF0ZUljb25cIikpO1xuXG5mdW5jdGlvbiBfaW50ZXJvcFJlcXVpcmVEZWZhdWx0KG9iaikgeyByZXR1cm4gb2JqICYmIG9iai5fX2VzTW9kdWxlID8gb2JqIDogeyBcImRlZmF1bHRcIjogb2JqIH07IH1cblxudmFyIF9kZWZhdWx0ID0gKDAsIF9jcmVhdGVJY29uW1wiZGVmYXVsdFwiXSkoJ00yMiA2QzIyIDQuOSAyMS4xIDQgMjAgNEg0QzIuOSA0IDIgNC45IDIgNlYxOEMyIDE5LjEgMi45IDIwIDQgMjBIMjBDMjEuMSAyMCAyMiAxOS4xIDIyIDE4VjZNMjAgNkwxMiAxMUw0IDZIMjBNMjAgMThINFY4TDEyIDEzTDIwIDhWMThaJywgJ0VtYWlsT3V0bGluZScpO1xuXG5leHBvcnRzW1wiZGVmYXVsdFwiXSA9IF9kZWZhdWx0OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./node_modules/mdi-material-ui/EmailOutline.js\n");
+
+/***/ }),
+
 /***/ "./node_modules/mdi-material-ui/Phone.js":
 /*!***********************************************!*\
   !*** ./node_modules/mdi-material-ui/Phone.js ***!

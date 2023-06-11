@@ -72,6 +72,8 @@ const BookNow = () => {
   const [year, setYear] = useState('')
   const [month, setMonth] = useState('')
   const [day, setDay] = useState('')
+  const [date, setDate] = useState('')
+  const [value, setValue] = useState('')
 
   const handleClickOpen = wid => {
     setWorkerId(wid)
@@ -89,32 +91,27 @@ const BookNow = () => {
     var totalamount = 0
 
     if (area == '100') {
-      console.log(' Amount is 50')
-      totalamount = 50
+      totalamount = 70
     } else if (area == '100-200') {
-      console.log(' Amount is 100')
-      totalamount = 100
+      totalamount = 120
     } else if (area == '200-400') {
-      console.log(' Amount is 150')
-      totalamount = 150
+      totalamount = 220
     } else if (area == '400-600') {
-      console.log(' Amount is 200')
-      totalamount = 200
+      totalamount = 350
     }
 
-    if (cloths == 1) {
-      console.log(' Amount is 50')
-      totalamount = 50
-    } else if (cloths == 2) {
-      console.log(' Amount is 100')
-      totalamount = 100
-    } else if (cloths == 3) {
-      console.log(' Amount is 150')
-      totalamount = 150
-    } else if (cloths == 4) {
-      console.log(' Amount is 200')
-      totalamount = 200
+    if (cloths == 5) {
+      totalamount = 70
+    } else if (cloths == 10) {
+      totalamount = 120
+    } else if (cloths == 15) {
+      totalamount = 160
+    } else if (cloths == 25) {
+      totalamount = 250
     }
+
+    //commute charge
+    totalamount = totalamount + 70
 
     var workDate = `${year}-${month}-${day}`
 
@@ -149,6 +146,8 @@ const BookNow = () => {
     }
   }
 
+  const dateFunction = e => {}
+
   return (
     <Card>
       <CardHeader title='Book Worker Now!' titleTypographyProps={{ variant: 'h6' }} />
@@ -161,7 +160,11 @@ const BookNow = () => {
           listData.map((row, index) => (
             <div className={styles.wrapper} key={row.id}>
               <div className={styles.left}>
-                <img src='https://i.imgur.com/cMy8V5j.png' alt='user' width='100' />
+                <img
+                  src='https://res.cloudinary.com/dwvd0tz4l/image/upload/v1686492028/worker_zoah8x.jpg'
+                  alt='user'
+                  width='100'
+                />
                 <h4>{row.name}</h4>
                 <p>
                   {row.status == 'Booked' ? (
@@ -198,6 +201,7 @@ const BookNow = () => {
                                   >
                                     <FormControlLabel value='Cleaning' control={<Radio />} label='Cleaning' />
                                     <FormControlLabel value='Washing' control={<Radio />} label='Washing' />
+                                    <FormControlLabel value='Gardening' control={<Radio />} label='Gardening' />
                                   </RadioGroup>
                                 </FormControl>
                               </Grid>
@@ -222,14 +226,49 @@ const BookNow = () => {
                                 </Grid>
                               ) : workType == 'Washing' ? (
                                 <Grid item xs={12} sm={12}>
-                                  <TextField
+                                  <FormControl fullWidth>
+                                    <InputLabel>No. of clothes:</InputLabel>
+                                    <Select
+                                      label='Clotjes'
+                                      defaultValue='- Select -'
+                                      onChange={e => setCloths(e.target.value)}
+                                    >
+                                      <MenuItem value='- Select -' selected disabled>
+                                        - Select -
+                                      </MenuItem>
+                                      <MenuItem value='5'>Less than 5</MenuItem>
+                                      <MenuItem value='10'>5 - 10</MenuItem>
+                                      <MenuItem value='15'>10 - 15</MenuItem>
+                                      <MenuItem value='25'>15 - 25</MenuItem>
+                                    </Select>
+                                  </FormControl>
+                                  {/* <TextField
                                     onChange={e => setCloths(e.target.value)}
                                     type='number'
                                     fullWidth
                                     label='Enter no. of cloths'
                                     placeholder='Enter no. of cloths'
                                     helperText='Enter number of cloths'
-                                  />
+                                  /> */}
+                                </Grid>
+                              ) : workType == 'Gardening' ? (
+                                <Grid item xs={12} sm={12}>
+                                  <FormControl fullWidth>
+                                    <InputLabel>Area:</InputLabel>
+                                    <Select
+                                      label='Area'
+                                      defaultValue='- Select -'
+                                      onChange={e => setArea(e.target.value)}
+                                    >
+                                      <MenuItem value='- Select -' selected disabled>
+                                        - Select -
+                                      </MenuItem>
+                                      <MenuItem value='100'>Less than 100sq</MenuItem>
+                                      <MenuItem value='100-200'>100sq - 200sq</MenuItem>
+                                      <MenuItem value='200-400'>200sq - 400sq</MenuItem>
+                                      <MenuItem value='400-600'>400sq - 600sq</MenuItem>
+                                    </Select>
+                                  </FormControl>
                                 </Grid>
                               ) : null}
 
@@ -241,32 +280,36 @@ const BookNow = () => {
                                       disablePast
                                       onChange={e => {
                                         setYear(e['$y'])
-                                        setMonth(e['$M'])
+                                        setMonth(e['$M'] + 1)
                                         setDay(e['$D'])
+                                        console.log(date)
+                                        console.log(year)
+                                        console.log(month)
+                                        console.log(day)
                                       }}
                                     />
                                   </LocalizationProvider>
                                 </Grid>
                               ) : null}
 
-                              {cloths == 1 ? (
-                                <Typography variant='secondary'> Amount: ₹50 </Typography>
-                              ) : cloths == 2 ? (
-                                <Typography variant='secondary'> Amount: ₹100</Typography>
-                              ) : cloths == 3 ? (
-                                <Typography variant='secondary'> Amount: ₹150</Typography>
-                              ) : cloths == 4 ? (
-                                <Typography variant='secondary'> Amount: ₹200 </Typography>
+                              {cloths == 5 ? (
+                                <Typography variant='secondary'> Amount: ₹140 </Typography>
+                              ) : cloths == 10 ? (
+                                <Typography variant='secondary'> Amount: ₹190</Typography>
+                              ) : cloths == 15 ? (
+                                <Typography variant='secondary'> Amount: ₹230</Typography>
+                              ) : cloths == 25 ? (
+                                <Typography variant='secondary'> Amount: ₹320 </Typography>
                               ) : null}
 
                               {area == '100' ? (
-                                <Typography variant='secondary'> Amount: ₹50 </Typography>
+                                <Typography variant='secondary'> Amount: ₹140 </Typography>
                               ) : area == '100-200' ? (
-                                <Typography variant='secondary'> Amount: ₹100</Typography>
+                                <Typography variant='secondary'> Amount: ₹190</Typography>
                               ) : area == '200-400' ? (
-                                <Typography variant='secondary'> Amount: ₹150</Typography>
+                                <Typography variant='secondary'> Amount: ₹290</Typography>
                               ) : area == '400-600' ? (
-                                <Typography variant='secondary'> Amount: ₹200 </Typography>
+                                <Typography variant='secondary'> Amount: ₹420 </Typography>
                               ) : null}
 
                               {day != '' ? (
@@ -281,9 +324,16 @@ const BookNow = () => {
                                       <MenuItem value='- Select -' selected disabled>
                                         - Select -
                                       </MenuItem>
-                                      <MenuItem value='Gokulam'>Gokulam</MenuItem>
-                                      <MenuItem value='Vidyanagar'>Vidyanagar</MenuItem>
+                                      <MenuItem value='Nehru Nagar'>Nehru Nagar</MenuItem>
                                       <MenuItem value='Gandhi Nagar'>Gandhi Nagar</MenuItem>
+                                      <MenuItem value='Shankar Nagar'>Shankar Nagar</MenuItem>
+                                      <MenuItem value='Udhaygiri'>Udhaygiri</MenuItem>
+                                      <MenuItem value='Halahalli'>Halahalli</MenuItem>
+                                      <MenuItem value='Chamundeshwari Nagar'>Chamundeshwari Nagar</MenuItem>
+                                      <MenuItem value='Kuvempu Nagar'>Kuvempu Nagar</MenuItem>
+                                      <MenuItem value='VV Nagar'>VV Nagar</MenuItem>
+                                      <MenuItem value='Kyathumgere'>Kyathumgere</MenuItem>
+                                      <MenuItem value='Kiragandur'>Kiragandur</MenuItem>
                                     </Select>
                                   </FormControl>
                                 </Grid>
