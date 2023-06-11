@@ -23,6 +23,8 @@ import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import InputLabel from '@mui/material/InputLabel'
 
+import styles from './OrderCard.module.css'
+
 const Bookings = () => {
   const [listData, setListData] = useState([])
   const [open, setOpen] = React.useState(false)
@@ -92,12 +94,118 @@ const Bookings = () => {
     <Card>
       <CardHeader title='My Bookings' titleTypographyProps={{ variant: 'h6' }} />
       <TableContainer>
-        <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
+        {listData.length == 0 ? (
+          <TableRow hover sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
+            <TableCell colSpan={6}>-- No Data Found --</TableCell>
+          </TableRow>
+        ) : (
+          <div className={styles.containerCardOrders}>
+            {listData.map((row, index) => (
+              <div className={styles.deliveryOrderCard} key={row.id}>
+                <div className={styles.orderPrimaryInfo}>
+                  <span>
+                    <strong>Order</strong> #{row.id}
+                  </span>
+                  <span>
+                    <strong>Date</strong> {row.date}{' '}
+                  </span>
+                </div>
+                <div className={styles.orderInfo}>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Worker Name</strong>
+                    {row.worker_name || 'Hari Kumar'}
+                  </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Worker Email</strong>
+                    {row.worker_email || 'harikumar@gmail.com'}
+                  </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Worker Phone</strong>
+                    {row.worker_phone || '8890876567'}
+                  </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Type of Work</strong>
+                    {row.type_of_work || 'All work'}
+                  </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Location</strong>
+                    {row.location}
+                  </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Status </strong>
+                    {row.status}
+                  </div>
+                  <br />
+                  <div className={styles.orderInfoRow}>
+                    <strong>Amount:</strong>
+                    {row.amount}₹
+                  </div>
+                </div>
+                <div className={styles.orderFooter}>
+                  <div>
+                    {row.ratings == 'NA' || row.ratings == '' || row.ratings == null ? (
+                      <Button variant='outlined' sx={{ color: 'blue' }} onClick={() => handleClickOpen(row.id)}>
+                        Rate Now!
+                      </Button>
+                    ) : null}
+                    <Dialog
+                      open={open}
+                      keepMounted
+                      onClose={handleClose}
+                      aria-describedby='alert-dialog-slide-description'
+                    >
+                      <DialogTitle>{'Provide Ratings!'}</DialogTitle>
+                      <DialogContent>
+                        <Card>
+                          <CardContent>
+                            <form onSubmit={rateNow}>
+                              <Grid container spacing={5} mb={5}>
+                                {row.status != '' ? (
+                                  <Grid item xs={12} sm={12}>
+                                    <FormControl fullWidth>
+                                      <InputLabel>Ratings:</InputLabel>
+                                      <Select
+                                        label='Ratings'
+                                        defaultValue='- Select -'
+                                        onChange={e => setRatings(e.target.value)}
+                                      >
+                                        <MenuItem value='- Select -' selected disabled>
+                                          - Select -
+                                        </MenuItem>
+                                        <MenuItem value='1'>1 - Bad</MenuItem>
+                                        <MenuItem value='2'>2</MenuItem>
+                                        <MenuItem value='3'>3 - Good</MenuItem>
+                                        <MenuItem value='4'>4</MenuItem>
+                                        <MenuItem value='5'>5 - Excellent</MenuItem>
+                                      </Select>
+                                    </FormControl>
+                                  </Grid>
+                                ) : null}
+                              </Grid>
+                              <Grid item xs={12} sm={12}>
+                                <Button fullWidth type='submit' variant='contained' size='large'>
+                                  Submit
+                                </Button>
+                              </Grid>
+                            </form>
+                          </CardContent>
+                        </Card>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                  <div>Rating: {row.ratings}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
           <TableHead>
             {/* <Typography variant='body2'>
           My Bookings
         </Typography> */}
-            <TableRow>
+        {/* <TableRow>
               <TableCell>#</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Type of Work</TableCell>
@@ -184,7 +292,7 @@ const Bookings = () => {
               ))
             )}
           </TableBody>
-        </Table>
+        </Table> */}
       </TableContainer>
     </Card>
   )
