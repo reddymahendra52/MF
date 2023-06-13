@@ -74,12 +74,6 @@ const Query = () => {
     validateEmail()
     validatePhone()
     validateMessage()
-    // if (nameError === '' && emailError === '' && phoneError === '' && messageError === '') {
-    //   console.log('Name:', name)
-    //   console.log('Email:', email)
-    //   console.log('Phone:', phone)
-    //   console.log('Message:', message)
-    // }
     emailjs
       .sendForm('service_dyr75mh', 'template_p4tcnva', form.current, 'ioZoaQ2aQO0D49b4f')
       .then(
@@ -92,7 +86,6 @@ const Query = () => {
       )
       .then(response => {
         console.log('Email sent successfully!')
-        // Clear input fields
         setName('')
         setEmail('')
         setPhone('')

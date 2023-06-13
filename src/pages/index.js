@@ -54,10 +54,6 @@ const Dashboard = () => {
       console.log('Logged In UUID : ' + cuuid)
       window.location.href = '/pages/login'
     }
-    // } else if (cuuid == null) {
-    //   console.log('Invalid token')
-    //   window.location.href = '/pages/login'
-    // }
   }, [])
 
   return (
