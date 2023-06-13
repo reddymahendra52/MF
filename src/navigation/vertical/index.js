@@ -44,9 +44,14 @@ const navigation = () => {
       path: '/pages/profile'
     },
     {
+      title: 'Raise a Query',
+      icon: AlertCircleOutline,
+      path: '/pages/query'
+    },
+    {
       title: 'Logout',
       icon: Login,
-      path: '/pages/login'
+      path: '/pages/logout'
     }
   ]
 }

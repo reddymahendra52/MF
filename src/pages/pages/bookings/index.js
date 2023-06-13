@@ -135,65 +135,23 @@ const Bookings = () => {
                     <strong>Status </strong>
                     {row.status}
                   </div>
+                  <div className={styles.orderInfoRow}>
+                    <strong>Rating</strong>
+                    {row.ratings || 'N/A'}
+                  </div>
                   <br />
                   <div className={styles.orderInfoRow}>
-                    <strong>Amount:</strong>
-                    {row.amount}₹
+                    <strong>Amount:</strong>₹{row.amount}
                   </div>
                 </div>
                 <div className={styles.orderFooter}>
                   <div>
-                    {row.ratings == 'NA' || row.ratings == '' || row.ratings == null ? (
-                      <Button variant='outlined' sx={{ color: 'blue' }} onClick={() => handleClickOpen(row.id)}>
-                        Rate Now!
+                    {row.status == 'Accepted' ? (
+                      <Button variant='contained' href='https://pages.razorpay.com/pl_Ly7Za0n86df3VH/view'>
+                        Pay Now
                       </Button>
                     ) : null}
-                    <Dialog
-                      open={open}
-                      keepMounted
-                      onClose={handleClose}
-                      aria-describedby='alert-dialog-slide-description'
-                    >
-                      <DialogTitle>{'Provide Ratings!'}</DialogTitle>
-                      <DialogContent>
-                        <Card>
-                          <CardContent>
-                            <form onSubmit={rateNow}>
-                              <Grid container spacing={5} mb={5}>
-                                {row.status != '' ? (
-                                  <Grid item xs={12} sm={12}>
-                                    <FormControl fullWidth>
-                                      <InputLabel>Ratings:</InputLabel>
-                                      <Select
-                                        label='Ratings'
-                                        defaultValue='- Select -'
-                                        onChange={e => setRatings(e.target.value)}
-                                      >
-                                        <MenuItem value='- Select -' selected disabled>
-                                          - Select -
-                                        </MenuItem>
-                                        <MenuItem value='1'>1 - Bad</MenuItem>
-                                        <MenuItem value='2'>2</MenuItem>
-                                        <MenuItem value='3'>3 - Good</MenuItem>
-                                        <MenuItem value='4'>4</MenuItem>
-                                        <MenuItem value='5'>5 - Excellent</MenuItem>
-                                      </Select>
-                                    </FormControl>
-                                  </Grid>
-                                ) : null}
-                              </Grid>
-                              <Grid item xs={12} sm={12}>
-                                <Button fullWidth type='submit' variant='contained' size='large'>
-                                  Submit
-                                </Button>
-                              </Grid>
-                            </form>
-                          </CardContent>
-                        </Card>
-                      </DialogContent>
-                    </Dialog>
                   </div>
-                  <div>Rating: {row.ratings}</div>
                 </div>
               </div>
             ))}

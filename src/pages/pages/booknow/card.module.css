@@ -78,3 +78,32 @@
   margin: 0px;
   color: #919aa3;
 }
+
+@media screen and (max-width: 450px) {
+  .wrapper {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .right .infoData,
+  .right .projectsData {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .right .infoData,
+  .right .projectsData {
+    display: flex;
+    flex-direction: column;
+  }
+}

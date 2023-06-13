@@ -50,12 +50,14 @@ const Dashboard = () => {
     console.log('Name : ' + cname)
     setUserName(cname)
     setUserUUID(cuuid)
-    if (cuuid != null || cuuid != '') {
+    if (cuuid == null) {
       console.log('Logged In UUID : ' + cuuid)
-    } else {
-      console.log('Invalid token')
       window.location.href = '/pages/login'
     }
+    // } else if (cuuid == null) {
+    //   console.log('Invalid token')
+    //   window.location.href = '/pages/login'
+    // }
   }, [])
 
   return (
