@@ -227,9 +227,9 @@ const BookNow = () => {
                               ) : workType == 'Washing' ? (
                                 <Grid item xs={12} sm={12}>
                                   <FormControl fullWidth>
-                                    <InputLabel>No. of clothes:</InputLabel>
+                                    <InputLabel>Clothes:</InputLabel>
                                     <Select
-                                      label='Clotjes'
+                                      label='Clothes'
                                       defaultValue='- Select -'
                                       onChange={e => setCloths(e.target.value)}
                                     >
@@ -292,26 +292,6 @@ const BookNow = () => {
                                 </Grid>
                               ) : null}
 
-                              {cloths == 5 ? (
-                                <Typography variant='secondary'> Amount: ₹140 </Typography>
-                              ) : cloths == 10 ? (
-                                <Typography variant='secondary'> Amount: ₹190</Typography>
-                              ) : cloths == 15 ? (
-                                <Typography variant='secondary'> Amount: ₹230</Typography>
-                              ) : cloths == 25 ? (
-                                <Typography variant='secondary'> Amount: ₹320 </Typography>
-                              ) : null}
-
-                              {area == '100' ? (
-                                <Typography variant='secondary'> Amount: ₹140 </Typography>
-                              ) : area == '100-200' ? (
-                                <Typography variant='secondary'> Amount: ₹190</Typography>
-                              ) : area == '200-400' ? (
-                                <Typography variant='secondary'> Amount: ₹290</Typography>
-                              ) : area == '400-600' ? (
-                                <Typography variant='secondary'> Amount: ₹420 </Typography>
-                              ) : null}
-
                               {day != '' ? (
                                 <Grid item xs={12} sm={12}>
                                   <FormControl fullWidth>
@@ -337,6 +317,74 @@ const BookNow = () => {
                                     </Select>
                                   </FormControl>
                                 </Grid>
+                              ) : null}
+
+                              {cloths == 5 ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹140{' '}
+                                </Typography>
+                              ) : cloths == 10 ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹190
+                                </Typography>
+                              ) : cloths == 15 ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹230
+                                </Typography>
+                              ) : cloths == 25 ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹320{' '}
+                                </Typography>
+                              ) : null}
+
+                              {area == '100' ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹140{' '}
+                                </Typography>
+                              ) : area == '100-200' ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹190
+                                </Typography>
+                              ) : area == '200-400' ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹290
+                                </Typography>
+                              ) : area == '400-600' ? (
+                                <Typography
+                                  variant='secondary'
+                                  style={{ paddingLeft: '1.25rem', marginTop: '1.25rem' }}
+                                >
+                                  {' '}
+                                  Amount: ₹420{' '}
+                                </Typography>
                               ) : null}
 
                               {day != '' ? (
