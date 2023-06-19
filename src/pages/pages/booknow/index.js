@@ -74,8 +74,20 @@ const BookNow = () => {
   const [day, setDay] = useState('')
   const [date, setDate] = useState('')
   const [value, setValue] = useState('')
+  const [workerName, setWorkerName] = useState('')
+  const [workerEmail, setWorkerEmail] = useState('')
+  const [workerPhone, setWorkerPhone] = useState('')
+  const [customerName, setCustomerName] = useState('')
+  const [customerEmail, setCustomerEmail] = useState('')
+  const [customerPhone, setCustomerPhone] = useState('')
 
-  const handleClickOpen = wid => {
+  const handleClickOpen = (wid, name, email, phone) => {
+    setWorkerName(name)
+    setWorkerEmail(email)
+    setWorkerPhone(phone)
+    setCustomerName(localStorage.getItem('Name'))
+    setCustomerEmail(localStorage.getItem('Email'))
+    setCustomerPhone(localStorage.getItem('Phone'))
     setWorkerId(wid)
     setOpen(true)
   }
@@ -172,7 +184,11 @@ const BookNow = () => {
                       Already Booked
                     </Button>
                   ) : (
-                    <Button variant='outlined' sx={{ color: 'blue' }} onClick={() => handleClickOpen(row.worker_id)}>
+                    <Button
+                      variant='outlined'
+                      sx={{ color: 'blue' }}
+                      onClick={() => handleClickOpen(row.worker_id, row.name, row.email, row.phone)}
+                    >
                       Book Now
                     </Button>
                   )}
