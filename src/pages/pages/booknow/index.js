@@ -135,6 +135,12 @@ const BookNow = () => {
       area: area,
       date: workDate,
       amount: totalamount,
+      worker_email: workerEmail,
+      worker_name: workerName,
+      worker_phone: workerPhone,
+      customer_name: customerName,
+      customer_email: customerEmail,
+      customer_phone: customerPhone,
       status: 'Pending'
     })
     console.log(payload)
